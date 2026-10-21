@@ -52,6 +52,7 @@ Each skill is linked into place, not copied. Editing a skill from any tool edits
 | `create-verification-skill` | pstack | Generating a project `verify` skill that drives the real app |
 | `how` | pstack | "How does X work" walkthroughs |
 | `ketchup` | pstack | "Catch me up" after time away from a session |
+| `bro` | pstack | Restating the last reply in plain words, no jargon |
 | `diagnosing-bugs` | Matt Pocock | Hard bugs and perf regressions |
 | `tdd` | Matt Pocock | Test-first work |
 | `grilling`, `grill-me` | Matt Pocock | Stress-testing a plan |

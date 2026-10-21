@@ -6,7 +6,7 @@
       "commit": "d56fdb02770f53a42e5101e3dd9daa4f96dde92c",
       "path": "plugins/pstack/skills",
       "origin": "Lauren Tan's pstack, https://github.com/cursor/plugins/tree/main/pstack (MIT)",
-      "skills": ["unslop", "correct", "deslop", "typescript-best-practices", "thermo-nuclear-review", "create-verification-skill", "how", "ketchup"],
+      "skills": ["unslop", "correct", "deslop", "typescript-best-practices", "thermo-nuclear-review", "create-verification-skill", "how", "ketchup", "bro"],
       "local_changes": "Removed platform-mapping lines, poteto-mode links, model routing and Models sections; principles point to AGENTS.md; unslop description says when to apply."
     },
     "mattpocock": {
