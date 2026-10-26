@@ -14,7 +14,7 @@
       "version": "1.3.1",
       "path": "skills",
       "skills": ["diagnosing-bugs", "tdd", "grilling", "grill-me", "pr", "wizard", "prototype", "handoff", "research", "writing-for-agents", "git-guardrails-claude-code", "improve-codebase-architecture", "codebase-design", "domain-modeling"],
-      "local_changes": "'call the Skill tool with X' reworded to 'load the X skill' so it reads right in any tool."
+      "local_changes": "'call the Skill tool with X' reworded to 'load the X skill' so it reads right in any tool. pr gained a Filing section: check for an existing PR, title from recent history, open it ready, fall back to the REST API when GraphQL is rate-limited, and scan for secrets."
     },
     "vercel-labs-skills": {
       "repo": "https://github.com/vercel-labs/skills",
@@ -22,6 +22,14 @@
       "path": "skills",
       "skills": ["find-skills"],
       "local_changes": "None."
+    },
+    "tstack": {
+      "repo": "https://github.com/t3dotgg/tstack",
+      "commit": "7de017b3fc9d50c03cf3ecb98fb71e0ca65a78bd",
+      "path": "skills",
+      "origin": "Theo Browne, https://github.com/t3dotgg/tstack (MIT)",
+      "skills": ["babysit-pr", "modernize", "leaving-pr-comments", "full-stop"],
+      "local_changes": "babysit-pr passes --until ready only when the repo has Greptile or Macroscope, and rebases with --force-with-lease on the PR branch. full-stop is rewritten to stop before merge, review with thermo-nuclear-review, and file with the local pr skill. modernize and leaving-pr-comments match upstream."
     }
   }
 }

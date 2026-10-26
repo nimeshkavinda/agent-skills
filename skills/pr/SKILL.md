@@ -1,6 +1,6 @@
 ---
 name: pr
-description: "Use when writing a PR body."
+description: "Use when writing a PR body, or when the user asks to file, open, or create a pull request."
 metadata:
   credits:
     skill: show-me
@@ -9,7 +9,22 @@ metadata:
     url: "https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md"
 ---
 
-Use this template for writing the PR body:
+## Filing
+
+When the user asks to file, open, or create a pull request, do this first. Skip it when you are only writing a body for a PR that already exists.
+
+1. Check whether a PR for this branch already exists. Update that PR instead of opening a second one.
+2. Review the diff against the base branch, usually `origin/main`. Confirm the diff matches the goal.
+3. Take the title from recently merged PRs and git history in this repo. The title says why the change matters.
+4. Write the body with the template below. The first sentence states the problem from the user's request, then the solution. The diagram supports that, and the body does not open with a list of files and functions.
+5. Scan the title, body, quotes, and attachments for secrets and private details.
+6. Open a ready PR so review bots run.
+7. If `gh pr create` fails because the GraphQL rate limit is used up, create the PR through REST: `gh api repos/<owner>/<repo>/pulls -f title=... -f head=... -f base=... -F body=@<file>`.
+8. If the user also asked to babysit the PR, continue with the `babysit-pr` skill.
+
+## Body
+
+Use this template for the PR body:
 
 ```markdown
 ## Summary

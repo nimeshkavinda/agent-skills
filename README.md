@@ -38,7 +38,7 @@ Each skill is linked into place, not copied. Editing a skill from any tool edits
 - **Add a skill:** create `skills/<name>/SKILL.md`, run `./install.sh`, commit.
 - **Remove a skill:** delete its folder and rerun `./install.sh`. That also cleans up the broken links.
 - **Another machine:** `git pull && ./install.sh`.
-- **Upstream updates:** run `scripts/upstream-diff.sh pstack` (or `mattpocock`), copy in what you want, and update the commit in `sources.json`.
+- **Upstream updates:** run `scripts/upstream-diff.sh pstack` (or `mattpocock`, or `tstack`), copy in what you want, and update the commit in `sources.json`.
 
 ## Skills
 
@@ -65,3 +65,7 @@ Each skill is linked into place, not copied. Editing a skill from any tool edits
 | `git-guardrails-claude-code` | Matt Pocock | Hooks that block destructive git commands |
 | `improve-codebase-architecture`, `codebase-design`, `domain-modeling` | Matt Pocock | Architecture reviews and module design |
 | `find-skills` | vercel-labs | Finding installable skills |
+| `babysit-pr` | tstack | Watching a PR through CI and review bots, and fixing real findings |
+| `modernize` | tstack | Rebasing an old PR, or deciding it should be reworked or closed |
+| `leaving-pr-comments` | tstack | Formatting comments an agent posts on your behalf |
+| `full-stop` | tstack | Taking a change to a ready PR and stopping before merge |
