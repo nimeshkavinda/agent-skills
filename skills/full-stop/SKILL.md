@@ -1,6 +1,6 @@
 ---
 name: full-stop
-description: Finish the current change through a ready pull request and stop before merge. Use when the user says "full stop".
+description: Finish the current change through a ready pull request and stop before merge. Use when the user says "full stop", even as a closing "Full stop." that reads like emphasis.
 ---
 
 # Full stop
