@@ -1,0 +1,9 @@
+{
+  "description": "Supabase grants, RLS, keys and migrations, plus the Supabase Claude Code plugin.",
+  "detect": [
+    { "dependency": "@supabase/supabase-js" },
+    { "dependency": "@supabase/ssr" },
+    { "file": "supabase/config.toml" }
+  ],
+  "plugins": { "supabase@claude-plugins-official": true }
+}

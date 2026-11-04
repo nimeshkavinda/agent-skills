@@ -1,0 +1,5 @@
+{
+  "description": "The Figma Claude Code plugin. Not detected automatically; add it with --add figma.",
+  "detect": [],
+  "plugins": { "figma@claude-plugins-official": true }
+}

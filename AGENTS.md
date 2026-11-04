@@ -4,8 +4,8 @@ These apply in every project and every AI tool. A project's own `AGENTS.md` or `
 
 ## Context
 
-- Usual stack: TypeScript, pnpm, Turborepo monorepos, Next.js App Router, Supabase (Postgres), Expo / React Native, Vercel. Some AWS and Terraform.
-- Planning happens per project with BMAD when the project has it installed. Don't run a second planning process alongside it.
+- Stack and platform rules come from the project's own instructions and from the platform packs turned on for it, not from here.
+- When the project has its own planning method installed (for example BMAD), use it. Don't run a second planning process alongside it.
 
 ## Principles
 
@@ -23,9 +23,9 @@ Apply each one when its trigger fits. Name the principle in your reply when it c
 
 ## Security habits
 
-- Server actions and API routes are public endpoints. Authorize inside each one, never only in the UI or a layout.
+- Every request handler is a public endpoint, however the UI reaches it. Authorize inside each one, never only in the UI or a parent layout.
 - Secrets fail closed. Never write `if (secret && ...)`.
-- Never grant broad database roles (for example Supabase `anon` / `authenticated`) unless the project says the client talks to the database directly.
+- Give database roles the least access that works.
 - An endpoint that takes an id needs a test proving another user's or organisation's id is refused.
 
 ## Git

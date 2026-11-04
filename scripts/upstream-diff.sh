@@ -20,7 +20,8 @@ for name in $(jq -r '.upstreams | keys[]' "$REPO/sources.json"); do
       echo "--- $skill: no longer upstream"
       continue
     fi
-    diff -ru "$REPO/skills/$skill" "$upstream_dir" >"$TMP/$skill.diff" || true
+    local_dir=$(ls -d "$REPO/skills/$skill" "$REPO"/packs/*/skills/"$skill" 2>/dev/null | head -1)
+    diff -ru "$local_dir" "$upstream_dir" >"$TMP/$skill.diff" || true
     if [[ -s "$TMP/$skill.diff" ]]; then
       echo "--- $skill: differs (local edits or upstream changes)"
       cat "$TMP/$skill.diff"

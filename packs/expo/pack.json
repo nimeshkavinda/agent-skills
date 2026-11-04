@@ -1,0 +1,5 @@
+{
+  "description": "The Expo Claude Code plugin for Expo, EAS and React Native work.",
+  "detect": [{ "dependency": "expo" }],
+  "plugins": { "expo@claude-plugins-official": true }
+}

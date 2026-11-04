@@ -1,0 +1,5 @@
+{
+  "description": "The Vercel Claude Code plugin for deploys, env vars and Vercel products.",
+  "detect": [{ "file": "vercel.json" }, { "file": "vercel.ts" }, { "file": ".vercel/project.json" }],
+  "plugins": { "vercel@claude-plugins-official": true }
+}
