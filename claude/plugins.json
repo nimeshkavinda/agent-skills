@@ -6,18 +6,15 @@
     "github@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "figma@claude-plugins-official": true,
-    "expo@claude-plugins-official": true,
-    "vercel@claude-plugins-official": true,
-    "supabase@claude-plugins-official": true,
-    "mattpocock-skills@claude-plugins-official": false
+    "mattpocock-skills@claude-plugins-official": false,
+    "figma@claude-plugins-official": false,
+    "expo@claude-plugins-official": false,
+    "vercel@claude-plugins-official": false,
+    "supabase@claude-plugins-official": false
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
       "source": { "source": "github", "repo": "anthropics/claude-plugins-official" }
-    },
-    "bmad": {
-      "source": { "source": "github", "repo": "bmad-code-org/bmad-plugins" }
     }
   }
 }

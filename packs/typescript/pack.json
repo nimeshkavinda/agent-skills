@@ -1,0 +1,4 @@
+{
+  "description": "TypeScript type and boundary rules, loaded on .ts and .tsx work.",
+  "detect": [{ "file": "tsconfig.json" }]
+}
