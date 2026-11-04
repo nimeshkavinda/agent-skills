@@ -24,6 +24,22 @@ EXCLUDE_END = "# end agent-skills packs"
 SELECTION_FILE = ".agent-packs"
 
 
+def check_inside(root, path):
+    """Stop if a path we read or write is a symlink, or resolves outside the project.
+
+    A cloned project could plant .claude/settings.local.json or .claude/skills as a
+    symlink to a file elsewhere, which would make this script write there.
+    """
+    current = root
+    for part in path.relative_to(root).parts:
+        current = current / part
+        if current.is_symlink():
+            sys.exit(f"Refusing to use {current}: it is a symlink. Remove it and rerun.")
+    if not os.path.realpath(path).startswith(os.path.realpath(root) + os.sep):
+        sys.exit(f"Refusing to use {path}: it resolves outside {root}.")
+    return path
+
+
 def load_packs():
     packs = {}
     for manifest in sorted(PACKS.glob("*/pack.json")):
@@ -78,7 +94,7 @@ def detect(root, packs):
 
 def read_selection(root):
     added, removed = set(), set()
-    path = root / SELECTION_FILE
+    path = check_inside(root, root / SELECTION_FILE)
     if path.exists():
         for line in path.read_text().splitlines():
             line = line.strip()
@@ -102,6 +118,7 @@ def link_skills(root, active, packs, dry):
     wanted = {skill.name: skill for name in active for skill in packs[name]["skills"]}
     created = []
     for dest_dir in dest_dirs:
+        check_inside(root, dest_dir)
         # Remove links to pack skills that are no longer active.
         if dest_dir.is_dir():
             for entry in dest_dir.iterdir():
@@ -126,7 +143,7 @@ def link_skills(root, active, packs, dry):
 
 
 def update_plugins(root, active, packs, dry):
-    path = root / ".claude" / "settings.local.json"
+    path = check_inside(root, root / ".claude" / "settings.local.json")
     settings = json.loads(path.read_text()) if path.exists() else {}
     enabled = settings.get("enabledPlugins", {})
     before = dict(enabled)
@@ -159,6 +176,8 @@ def update_exclude(root, paths, dry):
     exclude = Path(out.stdout.strip())
     if not exclude.is_absolute():
         exclude = root / exclude
+    if exclude.is_symlink():
+        sys.exit(f"Refusing to use {exclude}: it is a symlink. Remove it and rerun.")
     text = exclude.read_text() if exclude.exists() else ""
     if EXCLUDE_START in text:
         head, _, rest = text.partition(EXCLUDE_START)
